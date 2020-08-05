@@ -1,20 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Navigator from './src/pages/Navigator';
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Navigator />
-      </View>
-    );
-  }
-}
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Navigator />
+    </View>
+  );
+};
+export default App;
 
 const styles = StyleSheet.create({
   container: {

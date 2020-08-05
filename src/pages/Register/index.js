@@ -15,6 +15,7 @@ import {
 import {styles} from './styles';
 import auth from '@react-native-firebase/auth';
 import {images} from '../../utils/images';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 
 export default class Register extends Component {
   static navigationOptions = {
@@ -34,6 +35,12 @@ export default class Register extends Component {
       if (isRegister.user) {
         this.props.navigation.navigate('Home');
       }
+
+      PushNotificationIOS.requestPermissions().then(() => {
+        PushNotificationIOS.presentLocalNotification({
+          alertBody: 'New user is registered!',
+        });
+      });
     } catch (e) {
       this.setState({showSpinner: false});
       if (this.state.password.length < 6) {
