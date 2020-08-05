@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>556414622600-kg4c82f7bkja926efppiiego5ere4m8c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.556414622600-kg4c82f7bkja926efppiiego5ere4m8c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCZnK_QL1nLvGj409T4-yV9Hx_0-tSBq1E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>556414622600</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.rn-task</string>
+	<key>PROJECT_ID</key>
+	<string>bilicra-task</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bilicra-task.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:556414622600:ios:cc3396208f48748be9b83d</string>
+	<key>DATABASE_URL</key>
+	<string>https://bilicra-task.firebaseio.com</string>
+</dict>
+</plist>
