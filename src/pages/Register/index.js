@@ -79,9 +79,10 @@ export default class Register extends Component {
                 secureTextEntry={true}
                 style={styles.inputStyle}
                 value={this.state.password}
-                onChangeText={(givenText) =>
-                  this.setState({password: givenText})
-                }
+                onChangeText={(givenText) => {
+                  console.log(givenText);
+                  this.setState({password: givenText});
+                }}
               />
             </View>
 
@@ -92,9 +93,10 @@ export default class Register extends Component {
                 secureTextEntry={true}
                 style={styles.inputStyle}
                 value={this.state.confirmPasword}
-                onChangeText={(givenText) =>
-                  this.setState({confirmPasword: givenText})
-                }
+                onChangeText={(givenText) => {
+                  console.log(givenText);
+                  this.setState({confirmPasword: givenText});
+                }}
               />
             </View>
 

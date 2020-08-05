@@ -18,7 +18,6 @@ import auth from '@react-native-firebase/auth';
 import {images} from '../../utils/images';
 import SpecificButton from '../../components/SpecificButton';
 
-
 export default class Login extends Component {
   static navigationOptions = {
     title: 'Login',
@@ -38,8 +37,6 @@ export default class Login extends Component {
         currentDateTime.setHours(currentDateTime.getHours() + 1),
       );
       AsyncStorage.setItem('expireTime', expireDateTime.getTime().toString());
-      console.log(isLogin);
-
       this.setState({showSpinner: false});
       if (isLogin.user) {
         this.props.navigation.navigate('Home', {

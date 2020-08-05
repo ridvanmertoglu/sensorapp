@@ -5,13 +5,12 @@ import {
   ActivityIndicator,
   FlatList,
   SafeAreaView,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
-  Button,
   AsyncStorage,
 } from 'react-native';
 import getSensors from '../../api';
+import {styles} from './styles';
 
 export default class Home extends Component {
   static navigationOptions = ({navigation}) => {
@@ -19,7 +18,7 @@ export default class Home extends Component {
     return {
       headerRight: (
         <TouchableOpacity onPress={params.logout}>
-          <Text style={{marginHorizontal: 10}}>Logout</Text>
+          <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       ),
       headerLeft: false,
@@ -35,16 +34,18 @@ export default class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    this.showSensors();
+    this.props.navigation.setParams({logout: this._logout.bind(this)});
+  }
+
   showSensors = async () => {
     this.setState({sensorList: await getSensors()});
     if (Array.isArray(this.state.sensorList)) {
       this.setState({listedSensors: this.state.sensorList, loading: false});
     }
   };
-  componentDidMount() {
-    this.showSensors();
-    this.props.navigation.setParams({logout: this._logout.bind(this)});
-  }
+
   renderContactsItem = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -89,7 +90,6 @@ export default class Home extends Component {
     AsyncStorage.removeItem('app_token');
     AsyncStorage.removeItem('expireTime');
     this.props.navigation.navigate('Login');
-    console.log(AsyncStorage.removeItem('expireTime'));
   };
 
   render() {
@@ -107,7 +107,7 @@ export default class Home extends Component {
       date = new Date();
     }, 1000);
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={styles.container}>
         {this.state.loading ? (
           <ActivityIndicator />
         ) : (
@@ -121,26 +121,3 @@ export default class Home extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  itemContainer: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginHorizontal: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#add8e6',
-  },
-  sensorName: {
-    fontSize: 20,
-  },
-  searchContainer: {
-    padding: 10,
-  },
-  searchInput: {
-    fontSize: 20,
-    backgroundColor: '#f9f9f9',
-    padding: 10,
-    borderRadius: 15,
-  },
-});
